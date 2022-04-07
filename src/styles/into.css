@@ -1,0 +1,27 @@
+.container-into{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    background-color: #7F5AF0;
+}
+
+.title-into{
+    color: rgba(255, 255, 255, 0.702);
+    letter-spacing: .5rem;
+    font-size: calc(.5rem + 1vw);
+    padding-top: 20rem;
+}
+
+button{
+    margin-top: 3rem;
+    padding: .8rem;
+    background-color: white;
+    border-radius: .5rem;
+    border: none;
+    color: #7F5AF0;
+    font-size: calc(.9rem + 1vw);
+    box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.64);
+}
