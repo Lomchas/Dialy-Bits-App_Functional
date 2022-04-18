@@ -1,10 +1,8 @@
 import React, { memo, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Url } from "../helpers/Url";
 
 const NavBar = memo(() => {
   const [userType, setUserType] = useState({});
-  const [active, setActive] = useState(false);
 
   const traerUser = () => {
     const local = JSON.parse(localStorage.getItem("user"));

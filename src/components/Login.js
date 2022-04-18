@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
 import { Url } from "../helpers/Url";
 import { useForm } from "../hooks/useForm";
 import logoApp from "../images/Color=Purple, Container=Yes.png";
 import "../styles/login.css";
 
 const Login = () => {
-  const [formValue, handleInputChange, reset, setValues] = useForm({
+  const [formValue, handleInputChange] = useForm({
     email: "",
     password: "",
   });
@@ -20,7 +19,7 @@ const Login = () => {
     if (!data === "") {
       console.log("Cargando...");
     } else {
-      data.filter((usuario) => {
+      await data.filter((usuario) => {
         if (
           usuario.email === formValue.email &&
           usuario.password === formValue.password
@@ -46,7 +45,7 @@ const Login = () => {
 
   useEffect(() => {
     fetchAPI();
-  }, [formValue]);
+  }, [formValue, fetchAPI]);
 
   return (
     <div className="container-login">
@@ -87,9 +86,9 @@ const Login = () => {
           {/* </Link> */}
         </form>
       </div>
-      <a href="#" className="aForgotPassword">
+      <button className="aForgotPassword">
         ¿Se te olvido tu contraseña?
-      </a>
+      </button>
       <p className="pInscribirse">
         ¿Aun no tienes una cuenta?{" "}
         <Link to="/signUp" className="LinkInscribirse">

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
 import { Url } from "../helpers/Url";
 import { useForm } from "../hooks/useForm";
 import logoApp from "../images/Color=Purple, Container=Yes.png";
@@ -54,8 +53,7 @@ const SignUp = () => {
   
   }
 
-  const [formValue, handleInputChange, reset, setValues] = useForm(initialState)
-  // const [postUser, setPostUser] = useState(initialState)
+  const [formValue, handleInputChange, reset, ] = useForm(initialState)
 
   const {nombre, email, password, password2} = formValue;
 

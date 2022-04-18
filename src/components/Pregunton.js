@@ -16,7 +16,6 @@ import card1 from "../images/Property 1=Angular.png";
 import card2 from "../images/Property 1=Vue.js.png";
 import card3 from "../images/Property 1=Windows.png";
 import card4 from "../images/Property 1=Kotlin.png";
-import { Url } from "../helpers/Url";
 
 const Pregunton = () => {
   const [preguntas, setPreguntas] = useState({
@@ -36,7 +35,6 @@ const Pregunton = () => {
     vidas: 4,
   });
 
-  const [datosUserQuestions, setDatosUserQuestions] = useState();
   const [categoriaQuestions, setCategoriaQuestions] = useState({
     categoria: "",
   });

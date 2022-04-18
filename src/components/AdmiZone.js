@@ -29,7 +29,7 @@ const AdmiZone = () => {
         {users.map((user) => (
           <div className="container-user" key={user ? user.id : 0}>
             <div className="container-photo">
-              <img src={user ? user.image : "#"} width='40px' alt="photo" />
+              <img src={user ? user.image : "#"} width='40px' alt="user" />
             </div>
             <h3 className="nombre-user">{user ? user.nombre : "user000000"}</h3>
             <p className={ user.type === 'ADMIN' ? 'type-user-admin' : 'type-user'}>{user ? user.type : "type"}</p>
