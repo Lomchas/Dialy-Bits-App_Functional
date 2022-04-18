@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import ProgressBarTop from "./ProgressBarTop";
 import "../styles/Pregunton.css";
 import SalirIcon from "../icons/Property 1=x.svg";
@@ -163,7 +163,7 @@ const Pregunton = () => {
   };
 
 
-  const ActualizarEstado = () => {
+  const ActualizarEstado = useCallback(() => {
     const local = localStorage.getItem("categoria");
     setCategoriaQuestions({
       categoria: 0,
@@ -183,7 +183,7 @@ const Pregunton = () => {
         },
       });
     }
-  };
+  });
 
   const handleRespuesta = ({ target }) => {
     if (target.value) {
@@ -204,7 +204,7 @@ const Pregunton = () => {
   useEffect(() => {
     traerUser();
     ActualizarEstado();
-  }, [cambiarQuestion, labels]);
+  }, [cambiarQuestion, labels, ActualizarEstado]);
 
   return (
     <div className="container-pregunton">

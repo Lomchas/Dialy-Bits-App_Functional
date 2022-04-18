@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Url } from "../helpers/Url";
 import { useForm } from "../hooks/useForm";
@@ -11,28 +11,26 @@ const Login = () => {
     password: "",
   });
   const { email, password } = formValue;
-  const [usuarioEnter, setUsuarioEnter] = useState();
+  const [usuarioEnter, setUsuarioEnter] = useState([]);
 
-  const fetchAPI = async () => {
-    const request = await fetch(Url);
-    const data = await request.json();
-    if (!data === "") {
-      console.log("Cargando...");
-    } else {
-      await data.filter((usuario) => {
-        if (
-          usuario.email === formValue.email &&
-          usuario.password === formValue.password
-        ) {
-          setUsuarioEnter(usuario);
-        }
-      });
-    }
-  };
+  const fetchAPI = useCallback(() => {
+    fetch(Url)
+      .then((resp) => resp.json())
+      .then((data) =>
+        data === ""
+          ? console.log("Cargando...")
+          : data.filter((usuario) =>
+              usuario.email === formValue.email &&
+              usuario.password === formValue.password
+                ? setUsuarioEnter(usuario)
+                : ""
+            )
+      ).catch((err) => console.log(err))
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (usuarioEnter === undefined) {
       alert("Usuario o contraseña incorrectos");
     } else {
@@ -45,7 +43,7 @@ const Login = () => {
 
   useEffect(() => {
     fetchAPI();
-  }, [formValue, fetchAPI]);
+  }, [formValue]);
 
   return (
     <div className="container-login">
@@ -86,9 +84,7 @@ const Login = () => {
           {/* </Link> */}
         </form>
       </div>
-      <button className="aForgotPassword">
-        ¿Se te olvido tu contraseña?
-      </button>
+      <button className="aForgotPassword">¿Se te olvido tu contraseña?</button>
       <p className="pInscribirse">
         ¿Aun no tienes una cuenta?{" "}
         <Link to="/signUp" className="LinkInscribirse">
