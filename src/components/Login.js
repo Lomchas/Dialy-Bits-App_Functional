@@ -40,7 +40,7 @@ const Login = () => {
       alert(`Bienvenid@ ${usuarioEnter.nombre}`);
       localStorage.setItem("user", JSON.stringify(usuarioEnter));
       console.clear();
-      location.href = "/home";
+      window.location = "/home";
     }
   };
 
