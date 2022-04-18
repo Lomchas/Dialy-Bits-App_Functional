@@ -1,10 +1,11 @@
-import Into from '../components/Into';
 import '../styles/App.css';
+import AppRouter from '../routers/AppRouter'
+
 
 function App() {
   return (
     <div className="App">
-      <Into/>
+      <AppRouter />
     </div>
   );
 }

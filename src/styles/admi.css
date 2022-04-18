@@ -1,0 +1,68 @@
+.contanier-admiZone{
+    background: #16161A;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+}
+
+.header-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+}
+
+.container-allUsers{
+    width: 100%;
+    padding: 1rem 0 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    gap: 2rem;
+}
+
+.container-user{
+    background: #16161A;
+    border: 1px solid #94A1B2;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: .5rem;
+
+}
+
+.container-photo{
+    background: red;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.container-photo img{
+    width: 100%;
+
+}
+
+.container-user .nombre-user{
+    margin: 0;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.container-user .type-user{
+    margin: 0;
+    text-transform: uppercase;
+    color: rgb(13, 184, 13);
+}
+
+.type-user-admin{
+    margin: 0;
+    text-transform: uppercase;
+    color: rgb(184, 24, 13);
+}

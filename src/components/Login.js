@@ -1,18 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { Url } from "../helpers/Url";
+import { useForm } from "../hooks/useForm";
 import logoApp from "../images/Color=Purple, Container=Yes.png";
 import "../styles/login.css";
 
-
-
 const Login = () => {
+  const [formValue, handleInputChange, reset, setValues] = useForm({
+    email: "",
+    password: "",
+  });
+  const { email, password } = formValue;
+  const [usuarioEnter, setUsuarioEnter] = useState();
+
+  const fetchAPI = async () => {
+    const request = await fetch(Url);
+    const data = await request.json();
+    if (!data === "") {
+      console.log("Cargando...");
+    } else {
+      data.filter((usuario) => {
+        if (
+          usuario.email === formValue.email &&
+          usuario.password === formValue.password
+        ) {
+          setUsuarioEnter(usuario);
+        }
+      });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (usuarioEnter === undefined) {
+      alert("Usuario o contraseña incorrectos");
+    } else {
+      alert(`Bienvenid@ ${usuarioEnter.nombre}`);
+      localStorage.setItem("user", JSON.stringify(usuarioEnter));
+      console.clear();
+      location.href = "/home";
+    }
+  };
+
+  useEffect(() => {
+    fetchAPI();
+  }, [formValue]);
+
   return (
     <div className="container-login">
       <img alt="logoApp" width="100px" height="100px" src={logoApp} />
       <h2 className="title-login">Iniciar Sesion</h2>
       <hr />
       <div className="form-container">
-        <form className="form-login">
+        <form className="form-login" onSubmit={handleSubmit}>
           <label htmlFor="email" className="label-login-email">
             Correo electronico
             <input
@@ -21,20 +63,28 @@ const Login = () => {
               id="email"
               className="inputEmail"
               autoComplete="no"
+              onChange={handleInputChange}
+              name="email"
+              value={email}
             />
           </label>
-          <br/>
+          <br />
           <label htmlFor="password" className="label-login-password">
-          Contraseña
-          <input
+            Contraseña
+            <input
               type="password"
               placeholder="Ingrese su contraseña"
               id="password"
               className="inputPassword"
               autoComplete="no"
+              onChange={handleInputChange}
+              name="password"
+              value={password}
             />
           </label>
-          <button className="buttonLogin">Iniciar session</button>
+          {/* <Link to={route === 1 ? "/home" : "/login"}> */}
+          <button className="buttonLogin">Iniciar sesion</button>
+          {/* </Link> */}
         </form>
       </div>
       <a href="#" className="aForgotPassword">

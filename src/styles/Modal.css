@@ -1,0 +1,36 @@
+.Modal{
+    background: #F9CFD7;
+    width: 100%;
+    position: fixed;
+    bottom: 0; 
+    padding: 1rem;
+    z-index: 10000;
+}
+
+.headerModal p{
+    color: #ef294d;
+    font-weight: bold;
+    font-size: calc(1rem + 1vw);
+    margin: 0;
+}
+
+.bodyModal p{
+    color: #ef294d;
+    padding: .5rem 1rem;
+    margin: 0;
+    font-size: calc(.8rem + 1vw);
+    text-decoration: underline;
+}
+
+.footerModal{
+    width: 100%;
+}
+
+.footerModal button{
+    width: 100%;
+    font-weight: bold;
+    border-radius: 20px;
+    background: #ef294d;
+    color: white;
+    margin: 1rem 0;
+}

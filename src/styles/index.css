@@ -1,6 +1,15 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', 'Helvetica Neue';
+  font-family: "Roboto", "Helvetica Neue";
+}
+
+button {
+  margin-top: 3rem;
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 0.8rem;
+  font-size: calc(0.9rem + 1vw);
 }

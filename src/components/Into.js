@@ -8,7 +8,7 @@ const Into = () => {
     <div className="container-into">
       <img alt="logo_app" src={logoApp} />
       <Link to="/login">
-        <button>Entrar a la App</button>
+        <button className="button-into">Entrar a la App</button>
       </Link>
     </div>
   );
