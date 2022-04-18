@@ -35,6 +35,7 @@ const Pregunton = () => {
     vidas: 4,
   });
 
+  const [datosUserQuestions, setDatosUserQuestions] = useState();
   const [categoriaQuestions, setCategoriaQuestions] = useState({
     categoria: "",
   });
@@ -123,7 +124,8 @@ const Pregunton = () => {
     setDatosUserQuestions(localUser);
   };
 
-  
+
+  console.log(datosUserQuestions)
 
   const handleVerifiar = (e) => {
     e.preventDefault();
